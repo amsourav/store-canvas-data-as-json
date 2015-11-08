@@ -1,0 +1,23 @@
+<h1>Listing Submissions</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Roll</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @submissions.each do |submission| %>
+      <tr>
+        <td><%= submission.roll %></td>
+        <% for i in 0..submission.pages.length-1 %>
+          <td><%= link_to image_tag(submission.pages[i].thumb.url), "#" %></td>
+        <% end %>
+        <td><%= link_to 'Show', submission, class: 'btn btn-default' %></td>
+        <td><%= link_to 'Edit', edit_submission_path(submission), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

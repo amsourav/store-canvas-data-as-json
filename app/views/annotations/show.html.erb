@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mark:</strong>
+  <%= @annotation.mark %>
+</p>
+
+<p>
+  <strong>Sketch:</strong>
+  <%= @annotation.sketch %>
+</p>
+
+<%= link_to 'Edit', edit_submission_annotation_path(@submission, @annotation) %> |
+<%= link_to 'Back', submission_annotations_path(@submission) %>

@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Canvas</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <title>Canvas</title>
 </head>
 <body>
-
-<%= yield %>
-
+<%= nav_bar brand: 'Canvas' do %>
+	<%= menu_group do %>
+		<%= drop_down 'Submissions' do %>
+			<%= menu_item 'List All', submissions_path %>
+			<%= menu_item 'New', new_submission_path %>
+		<% end %> 
+	<% end %>
+<% end %>
+<div class="container-fluid">
+	<%= yield %>
+</div>
 </body>
 </html>

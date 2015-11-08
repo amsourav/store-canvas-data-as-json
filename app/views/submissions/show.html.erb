@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="col-md-8">
+		<%= link_to 'Edit', edit_submission_path(@submission), class: "btn btn-default btn-xs" %>
+		<%= link_to 'Back', submissions_path, class: "btn btn-success btn-xs" %>
+		<%# Shit %>
+		<canvas id="canvas" width="800" height="1123" style="background: url(<%= @submission.pages[0].url %>) no-repeat"></canvas>
+	</div>
+	<div class="col-md-4">
+		
+	</div>	
+</div>
+<script type="text/javascript">
+	var sketch = new Sketch("canvas");
+</script>
