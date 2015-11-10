@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'json'
+gem 'mathjax-rails'
 gem 'paperclip'
 gem 'angularjs-rails'
 gem 'simple_form'

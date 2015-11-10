@@ -14,7 +14,7 @@
         <% for i in 0..submission.pages.length-1 %>
           <td><%= link_to image_tag(submission.pages[i].thumb.url), "#" %></td>
         <% end %>
-        <td><%= link_to 'Show', submission, class: 'btn btn-default' %></td>
+        <td><%= link_to 'Grade', submission_annotations_path(submission), class: 'btn btn-default' %></td>
         <td><%= link_to 'Edit', edit_submission_path(submission), class: 'btn btn-default' %></td>
         <td><%= link_to 'Destroy', submission, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %></td>
       </tr>

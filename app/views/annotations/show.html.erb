@@ -1,14 +1,27 @@
-<p id="notice"><%= notice %></p>
+<script type="text/javascript">
+  $(document).ready(function(){
+	var sketch = new Sketch("canvas");
+	var a = <%= @annotation.sketch.to_json.gsub(/\"/, "") %>;
+	sketch.loadJSON(a);
+  });
+</script>
+<div class="row">
+	<div class="col-md-8">
+		<canvas id="canvas" width="800" height="1123" style="background: url(<%= @submission.pages[0].url %>) no-repeat"></canvas>
+	</div>
 
-<p>
-  <strong>Mark:</strong>
-  <%= @annotation.mark %>
-</p>
+	<div class="col-md-4">
+		<p>
+  			<strong>Mark:</strong>
+  			<%= @annotation.mark %>
+		</p>
+		<p>	
+			<strong>Remark</strong>
+			<%= @annotation.comment %> 
+		</p>
+	</div>
+</div>
 
-<p>
-  <strong>Sketch:</strong>
-  <%= @annotation.sketch %>
-</p>
 
 <%= link_to 'Edit', edit_submission_annotation_path(@submission, @annotation) %> |
 <%= link_to 'Back', submission_annotations_path(@submission) %>

@@ -3,6 +3,15 @@
 <head>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+     tex2jax: {
+       inlineMath: [ ['$','$'] ],
+       processEscapes: true
+     }
+    });
+</script>
+  <%= mathjax_tag %>
   <%= csrf_meta_tags %>
   <title>Canvas</title>
 </head>

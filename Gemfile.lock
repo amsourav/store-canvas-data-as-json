@@ -94,6 +94,8 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mathjax-rails (2.5.1)
+      railties (>= 3.0)
     meta_request (0.3.4)
       callsite (~> 0.0, >= 0.0.11)
       rack-contrib (~> 1.1)
@@ -217,6 +219,8 @@ DEPENDENCIES
   devise
   fabric-rails
   jquery-rails
+  json
+  mathjax-rails
   meta_request
   paperclip
   pg

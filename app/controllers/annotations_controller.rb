@@ -42,7 +42,7 @@ class AnnotationsController < ApplicationController
   # DELETE /annotations/1
   def destroy
     @annotation.destroy
-    redirect_to annotations_url, notice: 'Annotation was successfully destroyed.'
+    redirect_to submission_annotations_url(@submission), notice: 'Annotation was successfully destroyed.'
   end
 
   private
@@ -53,7 +53,7 @@ class AnnotationsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def annotation_params
-      params.require(:annotation).permit(:mark, :sketch, :submission_id)
+      params.require(:annotation).permit(:mark, :sketch, :submission_id, :comment)
     end
 
     def load_submission
