@@ -13,6 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require fabric
-//= require turbolinks
 //= require_tree .
+//= require turbolinks
