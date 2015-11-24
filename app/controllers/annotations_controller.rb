@@ -17,6 +17,7 @@ class AnnotationsController < ApplicationController
 
   # GET /annotations/1/edit
   def edit
+    @annotation = @submission.annotations.find(params[:id])
   end
 
   # POST /annotations
@@ -24,7 +25,7 @@ class AnnotationsController < ApplicationController
     @annotation = @submission.annotations.new(annotation_params)
 
     if @annotation.save
-      redirect_to submission_annotations_path(@submission), notice: 'Annotation was successfully created.'
+      redirect_to submission_annotation_path(@submission, @annotation), notice: 'Annotation was successfully created.'
     else
       render :new
     end
@@ -33,7 +34,7 @@ class AnnotationsController < ApplicationController
   # PATCH/PUT /annotations/1
   def update
     if @annotation.update(annotation_params)
-      redirect_to @annotation, notice: 'Annotation was successfully updated.'
+      redirect_to submission_annotation_path(@submission, @annotation), notice: 'Annotation was successfully updated.'
     else
       render :edit
     end

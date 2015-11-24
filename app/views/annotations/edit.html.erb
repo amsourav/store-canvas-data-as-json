@@ -1,6 +1,33 @@
 <h1>Editing Annotation</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', submission_annotation_path(@submission, @annotation) %> |
-<%= link_to 'Back', submission_annotations_path(@submission) %>
+<script type="text/javascript">
+  $(document).ready(function(){
+    var sketch = __canvas = new Sketch("canvas");
+    var jsonTA = document.getElementById("json");
+    var dataTA = document.getElementById("data");
+    var tmp = <%= @annotation.sketch.to_json.gsub(/\"/, "") %>;
+    sketch.loadJSON(tmp);
+    $("#clearBtn").click(function(){
+       sketch.clear();
+       jsonTA.value="";
+    });
+    $("#showJsonBtn").click(function(){
+       jsonTA.value = sketch.getJSON();
+    });
+    $("#applyJsonBtn").click(function(){
+      sketch.loadJSON(jsonTA.value);
+    });
+  });
+</script>
+<div class="row">
+	<div class="col-md-8">
+    <input type="button" value="Clear Screen" id="clearBtn" class="btn btn-danger btn-xs"  > | 
+    <input type="button" value="Show JSON" id="showJsonBtn" class="btn btn-success btn-xs" >
+  	<canvas id="canvas" width="800" height="1123" style="background: url(<%= @submission.pages[0].url %>) no-repeat"></canvas>
+	</div>
+	<div class="col-md-4">
+    <h2 style="text-align: center;"><%= @submission.roll %></h2>
+		<%= render 'form' %>
+	</div>	
+</div>
+<%= link_to 'Show', submission_annotation_path(@submission, @annotation), class: "btn btn-default btn-xs" %> |
+<%= link_to 'Back', submission_annotations_path(@submission), class: "btn btn-success btn-xs" %>

@@ -12,6 +12,9 @@
 
 	<div class="col-md-4">
 		<p>
+			<h1 style="text-align: center;"><%= @submission.roll %> </h1>	
+		</p>
+		<p>
   			<strong>Mark:</strong>
   			<%= @annotation.mark %>
 		</p>
@@ -23,5 +26,5 @@
 </div>
 
 
-<%= link_to 'Edit', edit_submission_annotation_path(@submission, @annotation) %> |
-<%= link_to 'Back', submission_annotations_path(@submission) %>
+<%= link_to 'Edit', edit_submission_annotation_path(@submission, @annotation), class: "btn btn-info btn-xs" %> |
+<%= link_to 'Back', submission_annotations_path(@submission), class: "btn btn-success btn-xs" %>

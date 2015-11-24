@@ -1,6 +1,6 @@
 <script type="text/javascript">
   $(document).ready(function(){
-    var sketch = new Sketch("canvas");
+    var sketch = __canvas = new Sketch("canvas");
     var jsonTA = document.getElementById("json");
     var dataTA = document.getElementById("data");
     $("#clearBtn").click(function(){
@@ -16,13 +16,13 @@
 </script>
 <div class="row">
 	<div class="col-md-8">
-    <input type="button" value="Clear Screen" id="clearBtn" >
-    <input type="button" value="Show JSON" id="showJsonBtn" >
-		<canvas id="canvas" width="800" height="1123" style="background: url(<%= @submission.pages[0].url %>) no-repeat"></canvas>
+    <input type="button" value="Clear Screen" id="clearBtn" class="btn btn-danger btn-xs"  > | 
+    <input type="button" value="Show JSON" id="showJsonBtn" class="btn btn-success btn-xs" >
+  	<canvas id="canvas" width="800" height="1123" style="background: url(<%= @submission.pages[0].url %>) no-repeat"></canvas>
 	</div>
 	<div class="col-md-4">
-    <h2 style="text-a lign: center;"><%= @submission.roll %></h2>
+    <h2 style="text-align: center;"><%= @submission.roll %></h2>
 		<%= render 'form' %>
 	</div>	
 </div>
-<%= link_to 'Back', submission_annotations_path(@submission) %>
+<%= link_to 'Back', submission_annotations_path(@submission), class: "btn btn-success btn-xs" %>

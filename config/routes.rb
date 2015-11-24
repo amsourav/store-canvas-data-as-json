@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :teachers
   mathjax 'mathjax'
   resources :submissions do
   	resources :annotations
